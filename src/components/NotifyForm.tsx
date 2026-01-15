@@ -19,10 +19,25 @@ export const NotifyForm = ({ isOpen, onClose }: NotifyFormProps) => {
 		if (!email) return
 
 		setIsLoading(true)
-		// Simulate API call
-		await new Promise(resolve => setTimeout(resolve, 1000))
-		setIsLoading(false)
-		setIsSubmitted(true)
+
+		try {
+			const res = await fetch("/api/waitlist", {
+				method: "POST",
+				headers: { "Content-Type": "application/json" },
+				body: JSON.stringify({ email }),
+			})
+
+			if (!res.ok) {
+				throw new Error("Failed to subscribe")
+			}
+
+			setIsSubmitted(true)
+		} catch (error) {
+			console.error(error)
+			// Optionally show error state
+		} finally {
+			setIsLoading(false)
+		}
 	}
 
 	const handleClose = () => {
@@ -55,7 +70,7 @@ export const NotifyForm = ({ isOpen, onClose }: NotifyFormProps) => {
 						transition={{ duration: 0.3, ease: "easeOut" }}
 						className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-md z-50 px-4"
 					>
-						<div className="bg-brand-black border border-white/10 rounded-2xl p-8 relative">
+						<div className="bg-brand-black border border-white/10 p-8 relative">
 							{/* Close Button */}
 							<button
 								onClick={handleClose}
@@ -109,14 +124,14 @@ export const NotifyForm = ({ isOpen, onClose }: NotifyFormProps) => {
 													onChange={e => setEmail(e.target.value)}
 													placeholder="you@example.com"
 													required
-													className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder:text-white/30 focus:outline-none focus:border-safety-orange/50 focus:ring-1 focus:ring-safety-orange/50 transition-colors"
+													className="w-full bg-white/5 border border-white/10 px-4 py-3 text-white placeholder:text-white/30 focus:outline-none focus:border-safety-orange/50 focus:ring-1 focus:ring-safety-orange/50 transition-colors"
 												/>
 											</div>
 
 											<button
 												type="submit"
 												disabled={isLoading}
-												className="w-full bg-safety-orange hover:bg-orange-600 disabled:bg-safety-orange/50 text-white px-6 py-4 font-bold tracking-wide uppercase transition-colors cursor-pointer flex items-center justify-center gap-2"
+												className="w-full bg-safety-orange hover:bg-orange-600 disabled:bg-safety-orange/50 text-white px-4 py-4 font-bold tracking-wide uppercase transition-colors cursor-pointer flex items-center justify-center gap-2"
 											>
 												{isLoading ? (
 													<>

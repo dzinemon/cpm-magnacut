@@ -9,7 +9,7 @@ export const Hero = () => {
 			{/* Background Texture */}
 			<div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-gunmetal/20 to-brand-black pointer-events-none" />
 
-			<div className="z-10 flex flex-col items-center text-center max-w-7xl mx-auto px-6">
+			<div className="z-10 flex flex-col items-center text-center max-w-7xl mx-auto px-4">
 				<motion.h1
 					initial={{ opacity: 0, y: 30 }}
 					animate={{ opacity: 1, y: 0 }}

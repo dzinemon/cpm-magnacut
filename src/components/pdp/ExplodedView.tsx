@@ -36,7 +36,7 @@ export const ExplodedView = () => {
 
 	return (
 		<section className="bg-brand-grey py-32 overflow-hidden">
-			<div className="max-w-7xl mx-auto px-6 text-center mb-16">
+			<div className="max-w-7xl mx-auto px-4 text-center mb-16">
 				<h2 className="text-4xl font-condensed font-bold uppercase tracking-tight mb-4 text-brand-black">
 					Engineered Perfection
 				</h2>

@@ -48,7 +48,7 @@ export function EdcSection() {
 	const [activeTab, setActiveTab] = useState(EDC_OPTIONS[0])
 
 	return (
-		<section className="w-full bg-brand-black text-white py-24 overflow-hidden relative">
+		<section className="w-full bg-brand-black text-white px-4 py-24 overflow-hidden relative">
 			{/* Background gradients */}
 			<div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_0%,_rgba(255,102,0,0.06)_0%,_transparent_50%)] pointer-events-none" />
 			<div className="absolute inset-0 bg-[radial-gradient(ellipse_100%_100%_at_50%_50%,_transparent_40%,_rgba(0,0,0,0.4)_100%)] pointer-events-none" />
@@ -63,7 +63,7 @@ export function EdcSection() {
 						transition={{ duration: 0.8, ease: "easeOut" }}
 						className="relative"
 					>
-						<div className="relative aspect-[4/3] w-full overflow-hidden rounded-[2rem]">
+						<div className="relative aspect-[4/3] w-full overflow-hidden">
 							<Image
 								src="/edc.png"
 								alt="Every Day Carry Essentials"
@@ -107,18 +107,18 @@ export function EdcSection() {
 				{/* Tabs Section */}
 				<div className="flex flex-col gap-12">
 					{/* Tab Navigation */}
-					<div className="flex flex-wrap justify-center gap-4 lg:gap-8">
+					<div className="flex flex-wrap justify-center gap-4 sm:gap-6 lg:gap-8">
 						{EDC_OPTIONS.map(option => (
 							<button
 								key={option.id}
 								onClick={() => setActiveTab(option)}
-								className="relative px-6 py-3 group cursor-pointer"
+								className="relative px-2 py-1.5 lg:px-6 lg:py-3 group cursor-pointer"
 							>
 								<span
 									className={cn(
-										"relative z-10 font-mono text-sm uppercase tracking-widest transition-colors duration-300",
+										"relative z-10 font-mono text-sm uppercase transition-colors duration-300",
 										activeTab.id === option.id
-											? "text-brand-black font-bold"
+											? "text-brand-black text-shadow-lg "
 											: "text-white/50 group-hover:text-white",
 									)}
 								>
@@ -127,7 +127,7 @@ export function EdcSection() {
 								{activeTab.id === option.id && (
 									<motion.div
 										layoutId="activeTab"
-										className="absolute inset-0 bg-white rounded-full"
+										className="absolute inset-0 bg-white"
 										transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
 									/>
 								)}
@@ -136,7 +136,7 @@ export function EdcSection() {
 					</div>
 
 					{/* Tab Content */}
-					<div className="relative min-h-[600px] lg:min-h-[500px] bg-brand-grey/5 rounded-[3rem] p-6 lg:p-12 overflow-hidden border border-white/5">
+					<div className="relative min-h-[600px] lg:min-h-[500px] bg-brand-grey/5 p-6 lg:p-12 overflow-hidden border border-white/5">
 						{/* Content spotlight gradient */}
 						<div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_70%_at_70%_50%,_rgba(255,102,0,0.05)_0%,_transparent_50%)] pointer-events-none" />
 						<div className="absolute inset-0 bg-[radial-gradient(ellipse_50%_50%_at_65%_45%,_rgba(255,255,255,0.02)_0%,_transparent_40%)] pointer-events-none" />
@@ -158,7 +158,9 @@ export function EdcSection() {
 										</span>
 									</div>
 									<h3 className="text-3xl lg:text-4xl font-condensed font-bold uppercase">
-										{activeTab.title}
+										<span className="text-transparent bg-clip-text bg-gradient-to-r from-safety-orange/40 via-white/50 to-white">
+											{activeTab.title}
+										</span>
 									</h3>
 									<p className="text-white/70 text-lg leading-relaxed max-w-md">
 										{activeTab.caption}
@@ -166,7 +168,7 @@ export function EdcSection() {
 								</div>
 
 								{/* Image Side */}
-								<div className="relative aspect-[4/3] lg:aspect-square w-full rounded-2xl overflow-hidden order-1 lg:order-2 shadow-2xl shadow-black/50">
+								<div className="relative aspect-[3/4] lg:aspect-square w-full overflow-hidden order-1 lg:order-2 shadow-2xl shadow-black/50">
 									<Image
 										src={activeTab.image}
 										alt={activeTab.title}
