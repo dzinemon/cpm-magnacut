@@ -6,7 +6,7 @@ import Image from "next/image"
 import { useState } from "react"
 
 const hotspots = [
-	{ id: 1, x: "35%", y: "53%", title: "Pivot", desc: "Caged Ceramic Bearings" },
+	{ id: 1, x: "22%", y: "53%", title: "Pivot", desc: "Caged Ceramic Bearings" },
 	{
 		id: 4,
 		x: "54%",
@@ -17,14 +17,14 @@ const hotspots = [
 	{ id: 2, x: "30%", y: "13%", title: "Blade", desc: "CPM-Magnacut 63 HRC" },
 	{
 		id: 3,
-		x: "65%",
-		y: "61%",
+		x: "77%",
+		y: "59%",
 		title: "Lock-bar",
 		desc: "Hardened Steel Insert",
 	},
 	{
 		id: 5,
-		x: "50%",
+		x: "52%",
 		y: "78%",
 		title: "Pocket Clip",
 		desc: "Deep Carry Titanium Clip",
@@ -35,7 +35,7 @@ export const ExplodedView = () => {
 	const [activeId, setActiveId] = useState<number | null>(null)
 
 	return (
-		<section className="bg-brand-grey py-32 overflow-hidden">
+		<section className="bg-brand-grey py-16 md:py-20 lg:py-24 overflow-hidden">
 			<div className="max-w-7xl mx-auto px-4 text-center mb-16">
 				<h2 className="text-4xl font-condensed font-bold uppercase tracking-tight mb-4 text-brand-black">
 					Engineered Perfection
@@ -45,7 +45,7 @@ export const ExplodedView = () => {
 				</p>
 			</div>
 
-			<div className="relative max-w-5xl mx-auto aspect-square md:aspect-video bg-white border border-gray-200 shadow-sm overflow-hidden">
+			<div className="relative max-w-3xl mx-auto aspect-square overflow-hidden">
 				{/* Background Drawing */}
 				<div className="absolute inset-0 p-10">
 					<Image

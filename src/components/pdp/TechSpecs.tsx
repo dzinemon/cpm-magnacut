@@ -40,7 +40,7 @@ export const TechSpecs = () => {
 	]
 
 	return (
-		<section className="py-24 px-4 bg-brand-grey">
+		<section className="py-16 md:py-20 lg:py-24 px-4 bg-brand-grey">
 			<div className="max-w-4xl mx-auto">
 				<h2 className="text-4xl font-condensed font-bold mb-12 text-center text-brand-black uppercase tracking-tight">
 					Technical Specifications
@@ -54,10 +54,10 @@ export const TechSpecs = () => {
 									key={spec.label}
 									className={`border-b border-gray-100 last:border-0 hover:bg-gray-50 transition-colors`}
 								>
-									<td className="py-6 px-8 font-mono text-sm text-neutral-500 uppercase tracking-widest w-1/3">
+									<td className="py-3 md:py-4 lg:py-6 px-3 md:px-6 lg:px-8 font-mono text-sm text-neutral-500 uppercase tracking-widest w-1/3">
 										{spec.label}
 									</td>
-									<td className="py-6 px-8 font-sans font-medium text-brand-black text-lg">
+									<td className="py-3 md:py-4 lg:py-6 px-3 md:px-6 lg:px-8 font-sans font-medium text-brand-black text-lg">
 										{spec.value}
 										{spec.description && (
 											<p className="mt-1 text-sm text-neutral-600 font-normal">

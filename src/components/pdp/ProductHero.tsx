@@ -9,7 +9,7 @@ import { NotifyForm } from "@/components/NotifyForm"
 export const ProductHero = () => {
 	const [isNotifyOpen, setIsNotifyOpen] = useState(false)
 	return (
-		<section className="sm:min-h-screen relative flex items-center justify-center overflow-hidden bg-brand-black text-white pt-0 pb-12 lg:pt-20 lg:pb-20">
+		<section className="md:min-h-dvh relative flex items-center justify-center overflow-hidden bg-brand-black text-white pt-0 pb-12 md:pt-20 md:pb-20">
 			{/* Background Texture */}
 			<div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-gunmetal/20 to-brand-black pointer-events-none" />
 
@@ -28,7 +28,7 @@ export const ProductHero = () => {
 						animate={{ opacity: 1, x: 0 }}
 						transition={{ duration: 0.8 }}
 					>
-						<h1 className="text-6xl sm:text-6xl md:text-7xl lg:text-8xl font-condensed font-bold tracking-tighter uppercase leading-none">
+						<h1 className="text-6xl sm:text-6xl md:text-6xl lg:text-8xl font-condensed font-bold tracking-tighter uppercase leading-none">
 							The <br />
 							<div>
 								{["V", "a", "n", "g", "u", "a", "r", "d"].map((char, index) => (
@@ -45,7 +45,7 @@ export const ProductHero = () => {
 											opacity: 1,
 										}}
 										transition={{ duration: 0.3, delay: index * 0.1 }}
-										className="inline-block"
+										className="inline-block text-shadow-md"
 									>
 										{char}
 									</motion.div>

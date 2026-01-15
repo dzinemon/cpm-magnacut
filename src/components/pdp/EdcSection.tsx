@@ -48,7 +48,7 @@ export function EdcSection() {
 	const [activeTab, setActiveTab] = useState(EDC_OPTIONS[0])
 
 	return (
-		<section className="w-full bg-brand-black text-white px-4 py-24 overflow-hidden relative">
+		<section className="w-full bg-brand-black text-white px-4 py-16 md:py-20 lg:py-24 overflow-hidden relative">
 			{/* Background gradients */}
 			<div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_0%,_rgba(255,102,0,0.06)_0%,_transparent_50%)] pointer-events-none" />
 			<div className="absolute inset-0 bg-[radial-gradient(ellipse_100%_100%_at_50%_50%,_transparent_40%,_rgba(0,0,0,0.4)_100%)] pointer-events-none" />
