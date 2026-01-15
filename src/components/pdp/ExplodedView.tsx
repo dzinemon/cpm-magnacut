@@ -25,7 +25,7 @@ const hotspots = [
 	{
 		id: 5,
 		x: "52%",
-		y: "78%",
+		y: "68%",
 		title: "Pocket Clip",
 		desc: "Deep Carry Titanium Clip",
 	},
@@ -81,7 +81,7 @@ export const ExplodedView = () => {
 							<motion.div
 								initial={{ opacity: 0, y: 10, scale: 0.95 }}
 								animate={{ opacity: 1, y: 0, scale: 1 }}
-								className="absolute left-1/2 -translate-x-1/2 top-10 bg-brand-black text-white p-4 rounded-lg shadow-xl w-48 text-center z-20 pointer-events-none"
+								className="absolute left-1/2 -translate-x-1/2 top-10 bg-brand-black text-white p-2 lg:p-4 shadow-xl w-32 md:w-40 lg:w-48 text-center z-20 pointer-events-none"
 							>
 								<div className="font-condensed font-bold uppercase text-safety-orange text-sm mb-1">
 									{spot.title}
