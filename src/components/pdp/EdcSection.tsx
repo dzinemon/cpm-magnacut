@@ -144,31 +144,81 @@ export function EdcSection() {
 						<AnimatePresence mode="wait">
 							<motion.div
 								key={activeTab.id}
-								initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
-								animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-								exit={{ opacity: 0, y: -20, filter: "blur(10px)" }}
-								transition={{ duration: 0.5 }}
 								className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 h-full items-center"
+								initial="hidden"
+								animate="visible"
+								exit="hidden"
+								variants={{
+									hidden: { opacity: 0 },
+									visible: {
+										opacity: 1,
+										transition: {
+											staggerChildren: 0.1,
+											delayChildren: 0.2,
+										},
+									},
+								}}
 							>
 								{/* Content Side */}
-								<div className="flex flex-col gap-6 order-2 lg:order-1">
-									<div className="inline-flex items-center px-3 py-1 rounded-full border border-white/10 bg-white/5 self-start">
+								<motion.div 
+									className="flex flex-col gap-6 order-2 lg:order-1"
+									variants={{
+										hidden: { opacity: 0 },
+										visible: {
+											opacity: 1,
+											transition: {
+												staggerChildren: 0.1,
+											},
+										},
+									}}
+								>
+									<motion.div 
+										className="inline-flex items-center px-3 py-1 rounded-full border border-white/10 bg-white/5 self-start"
+										variants={{
+											hidden: { opacity: 0, y: 10 },
+											visible: { opacity: 1, y: 0 },
+										}}
+										transition={{ duration: 0.4 }}
+									>
 										<span className="text-xs font-mono text-safety-orange uppercase tracking-wider">
 											{activeTab.vibe} Vibe
 										</span>
-									</div>
-									<h3 className="text-3xl lg:text-4xl font-condensed font-bold uppercase">
+									</motion.div>
+									<motion.h3 
+										className="text-3xl lg:text-4xl font-condensed font-bold uppercase"
+										variants={{
+											hidden: { opacity: 0, y: 10 },
+											visible: { opacity: 1, y: 0 },
+										}}
+										transition={{ duration: 0.4 }}
+									>
 										<span className="text-transparent bg-clip-text bg-gradient-to-r from-safety-orange/40 via-white/50 to-white">
 											{activeTab.title}
 										</span>
-									</h3>
-									<p className="text-white/70 text-lg leading-relaxed max-w-md">
+									</motion.h3>
+									<motion.p 
+										className="text-white/70 text-lg leading-relaxed max-w-md"
+										variants={{
+											hidden: { opacity: 0, y: 10 },
+											visible: { opacity: 1, y: 0 },
+										}}
+										transition={{ duration: 0.5,
+											type: "spring",
+											bounce: 0.5
+										 }}
+									>
 										{activeTab.caption}
-									</p>
-								</div>
+									</motion.p>
+								</motion.div>
 
 								{/* Image Side */}
-								<div className="relative aspect-[3/4] lg:aspect-square w-full overflow-hidden order-1 lg:order-2 shadow-2xl shadow-black/50">
+								<motion.div 
+									className="relative aspect-[3/4] lg:aspect-square w-full overflow-hidden order-1 lg:order-2 shadow-2xl shadow-black/50"
+									initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
+									animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+									exit={{ opacity: 0, y: -20, filter: "blur(10px)" }}
+									transition={{ duration: 0.4 }}
+								>
 									<Image
 										src={activeTab.image}
 										alt={activeTab.title}
@@ -178,7 +228,7 @@ export function EdcSection() {
 									{/* Image gradients */}
 									<div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
 									<div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_50%,_transparent_30%,_rgba(0,0,0,0.4)_100%)] pointer-events-none" />
-								</div>
+								</motion.div>
 							</motion.div>
 						</AnimatePresence>
 					</div>
